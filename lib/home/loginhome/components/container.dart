@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:googlevalidation_web/home/password/functionpassword.dart';
 import 'package:googlevalidation_web/utils/globle.dart';
 
 import '../../../utils/image.dart';
@@ -41,7 +42,36 @@ Column buildColumnGoogleSide(
                 textgmailfind,
                 style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
               )
-            : Container(),
+            : Container(
+          width: 300,
+          // height: 25,
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.black,width: 0.5),
+            borderRadius: BorderRadius.circular(30),
+          ),
+          child: Row(
+            children: [
+              Container(
+                margin: EdgeInsets.all(5),
+                height: 30,
+                width: 30,
+                decoration: BoxDecoration(
+                color: Colors.black54,
+                  shape: BoxShape.circle,
+              ),
+                child: Center(child: Text(email[0].toUpperCase(),style: TextStyle(color: Colors.white),),),
+              ),
+              SizedBox(width: 5,),
+              Text(
+                textgmailfind,
+                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+              ),
+              Spacer(),
+              Icon(Icons.arrow_drop_down_outlined),
+              SizedBox(width: 10,),
+            ],
+          ),
+        ),
       )
     ],
   );
@@ -84,14 +114,18 @@ SizedBox emailPassWork({required TextEditingController controllerfind,String? te
       },
       onChanged: (value) {
         email=value;
+        colorbool=false;
       },
       controller: controllerfind,
       decoration: InputDecoration(
+        labelStyle: TextStyle(color: Colors.black),
         errorBorder: OutlineInputBorder(
           borderSide: BorderSide(color: Colors.red)
         ),
         border: OutlineInputBorder(),
         hoverColor: Colors.black,
+        label: Text('Email or Phone'),
+        // labelText: 'Email or Phone',
         hintText: textfind,//<----------{hint}
         hintStyle: const TextStyle(
           color: Colors.black,
@@ -144,5 +178,61 @@ Text textButtonNext({required String textfind}) {
   return Text(
     textfind,
     style: const TextStyle(color: Colors.white, fontSize: 12),
+  );
+}
+
+
+
+SizedBox passWork({required TextEditingController controllerfind,String? textfind,String? textforfind}) {
+  return SizedBox(
+    width: 370,
+    // height: 80,
+    child: TextFormField(
+      validator: (value) {
+        if(value!.isEmpty)
+        {
+          return 'Field must be required!';
+        }
+        else if(value.length<8 || value.length>=32)
+        {
+          return 'Field must be required Minimum 8 & Maximum 32!';
+        }
+        else if(passck==0)
+          {
+            return 'Field must be required one Spacial Character';
+          }else if(passck1==1)
+          {
+            return 'Field must be required Space Does Not Allow';
+          }
+      },
+      onChanged: (value) {
+        password=value;
+      },
+      controller: controllerfind,
+      decoration: InputDecoration(
+        errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.red)
+        ),
+        border: OutlineInputBorder(),
+        hoverColor: Colors.black,
+        label: Text(textfind.toString()),
+        labelStyle: TextStyle(color: Colors.black),
+        hintText: textfind,//<----------{hint}
+        hintStyle: const TextStyle(
+          color: Colors.black,
+        ),
+        enabledBorder: const OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.black),
+        ),
+        focusedBorder: const OutlineInputBorder(
+          borderSide: BorderSide(color: Colors.blue),
+        ),
+        helperText: textforfind,
+        helperStyle: const TextStyle(
+          color: Colors.blue,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    ),
   );
 }

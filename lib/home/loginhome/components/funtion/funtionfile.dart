@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:googlevalidation_web/home/password/functionpassword.dart';
+
 import '../../../../utils/globle.dart';
 int ck=0;
 
@@ -10,7 +12,7 @@ var result;
 void funtion_Ascii()
 {
   // print(result);
-  for(int i=34;i<=47;i++)
+  for(int i=32;i<=47;i++)
   {
     asciiValues.add(i);
   }
@@ -42,10 +44,12 @@ void funtion_check()
   funtion_Ascii();
   gmail_ck();
   gmaillast();
+  spacefind(findtext: email);
 }
+
 void gmail_ck()
 {
-  for(int i=0; i<email.length-9;i++)
+  for(int i=0; i<email.length-10;i++)
     {
       for(int j=0;j<asciiValues.length;j++)
         {
@@ -73,7 +77,7 @@ void gmaillast()
     }
   if(ckgmail==10)
     {
-      ck=1;
+      ckgmaillast=1;
       // print('object');
     }
 }

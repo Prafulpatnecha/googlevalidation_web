@@ -84,6 +84,7 @@ class _HomeLoginState extends State<HomeLogin> {
                               createtext: 'Create account',
                               textButtonfind: TextButton(
                                 onPressed: () {
+                                        Navigator.of(context).pushNamed('/password');
                                   setState(() {
                                     ck=0;
                                     ckgmail=0;
@@ -93,7 +94,6 @@ class _HomeLoginState extends State<HomeLogin> {
                                     if(response)
                                       {
                                         email=txtEmail.text;
-                                        Navigator.of(context).pushNamed('/password');
                                       }
                                   });
                                 },
