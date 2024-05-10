@@ -45,7 +45,7 @@ void funtion_check()
 }
 void gmail_ck()
 {
-  for(int i=0; i<email.length-10;i++)
+  for(int i=0; i<email.length-9;i++)
     {
       for(int j=0;j<asciiValues.length;j++)
         {
@@ -62,7 +62,7 @@ String gmailmain='@gmail.com';
 void gmaillast()
 {
   int j=0;
-  print('${email.length - 10}');
+  // print('${email.length - 10}');
   for(int i=email.length-10;i<email.length;i++)
     {
       if(gmailmain[j]==email[i])
@@ -71,9 +71,9 @@ void gmaillast()
         }
       j++;
     }
-  if(ckgmail==9)
+  if(ckgmail==10)
     {
       ck=1;
-      print('object');
+      // print('object');
     }
 }
