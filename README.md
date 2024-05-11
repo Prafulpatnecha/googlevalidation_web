@@ -18,8 +18,8 @@ samples, guidance on mobile development, and a full API reference.
 <hr>
 <p>
 <a href ="">
-<img src="https://github.com/Prafulpatnecha/googlevalidation_web/assets/144161200/2178a78c-1680-4e7e-87c5-c92a7e73ff03" width="22%" Height="35%">
+<img src="https://github.com/Prafulpatnecha/googlevalidation_web/assets/144161200/ad62225d-f993-4eed-bb8b-7670b39fc9ed" width="22%" Height="35%">
+<img src="https://github.com/Prafulpatnecha/googlevalidation_web/assets/144161200/2835676d-fe9c-4f47-b385-94bc28a75980" width="22%" Height="35%">
 </a>
 </p>
 <hr>
-
