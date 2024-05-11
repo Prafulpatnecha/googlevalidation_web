@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/widgets.dart';
 import 'package:googlevalidation_web/home/loginhome/components/funtion/funtionfile.dart';
 import 'package:googlevalidation_web/utils/colors.dart';
 import 'package:googlevalidation_web/utils/globle.dart';
@@ -84,16 +81,20 @@ class _HomeLoginState extends State<HomeLogin> {
                               createtext: 'Create account',
                               textButtonfind: TextButton(
                                 onPressed: () {
-                                        Navigator.of(context).pushNamed('/password');
                                   setState(() {
                                     ck=0;
                                     ckgmail=0;
                                     ckgmaillast=0;
-                                    funtion_check();
+                                    passckspace=0;
+                                    if(email.length>9)
+                                      {
+                                        funtioncheck();
+                                      }
                                     bool response=formKey.currentState!.validate();
                                     if(response)
                                       {
                                         email=txtEmail.text;
+                                        Navigator.of(context).pushNamed('/password');
                                       }
                                   });
                                 },
@@ -112,6 +113,7 @@ class _HomeLoginState extends State<HomeLogin> {
                 ),
               ),
             ),
+
           ],
         ),
       ),

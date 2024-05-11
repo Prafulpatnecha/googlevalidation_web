@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:googlevalidation_web/home/password/functionpassword.dart';
+// import 'package:googlevalidation_web/home/password/functionpassword.dart';
 import 'package:googlevalidation_web/utils/globle.dart';
 
 import '../../../utils/image.dart';
@@ -52,23 +52,23 @@ Column buildColumnGoogleSide(
           child: Row(
             children: [
               Container(
-                margin: EdgeInsets.all(5),
+                margin: const EdgeInsets.all(5),
                 height: 30,
                 width: 30,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                 color: Colors.black54,
                   shape: BoxShape.circle,
               ),
-                child: Center(child: Text(email[0].toUpperCase(),style: TextStyle(color: Colors.white),),),
+                child: Center(child: Text(email[0].toUpperCase(),style: const TextStyle(color: Colors.white),),),
               ),
-              SizedBox(width: 5,),
+              const SizedBox(width: 5,),
               Text(
                 textgmailfind,
                 style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
               ),
-              Spacer(),
-              Icon(Icons.arrow_drop_down_outlined),
-              SizedBox(width: 10,),
+              const Spacer(),
+              const Icon(Icons.arrow_drop_down_outlined),
+              const SizedBox(width: 10,),
             ],
           ),
         ),
@@ -85,23 +85,13 @@ SizedBox emailPassWork({required TextEditingController controllerfind,String? te
     height: 100,
     child: TextFormField(
       validator: (value) {
-        // for(int i=0;i<value!.length;i++)
-        //   {
-        //     if(value[i]==asciiValues)
-        //       {
-        //         ck=1;
-        //         print(ck);
-        //       }
-        //     print(value[i]);
-        //     print(ck);
-        //   }
         if(value!.isEmpty)
           {
             return 'Field must be required!';
           }
-        else if(value.length<8 || value.length>=32)
+        else if(value.length<9 || value.length>=32)
           {
-            return 'Field must be required Minimum 8 & Maximum 32!';
+            return 'Field must be required Minimum 9 & Maximum 32!';
           }
         else if(ck==1)
           {
@@ -110,21 +100,26 @@ SizedBox emailPassWork({required TextEditingController controllerfind,String? te
         else if(ckgmaillast==0)
           {
             return 'Field must be required @gmail.com!';
-          }
+          }else if(passckspace==1)
+        {
+          return 'Field must be required Space Does Not Allow';
+        }
+        return null;
       },
       onChanged: (value) {
         email=value;
         colorbool=false;
       },
+      obscureText: false,
       controller: controllerfind,
       decoration: InputDecoration(
-        labelStyle: TextStyle(color: Colors.black),
-        errorBorder: OutlineInputBorder(
+        labelStyle: const TextStyle(color: Colors.black),
+        errorBorder: const OutlineInputBorder(
           borderSide: BorderSide(color: Colors.red)
         ),
-        border: OutlineInputBorder(),
+        border: const OutlineInputBorder(),
         hoverColor: Colors.black,
-        label: Text('Email or Phone'),
+        label: const Text('Email or Phone'),
         // labelText: 'Email or Phone',
         hintText: textfind,//<----------{hint}
         hintStyle: const TextStyle(
@@ -188,7 +183,8 @@ SizedBox passWork({required TextEditingController controllerfind,String? textfin
     width: 370,
     // height: 80,
     child: TextFormField(
-      validator: (value) {
+      validator: (value)
+      {
         if(value!.isEmpty)
         {
           return 'Field must be required!';
@@ -197,26 +193,36 @@ SizedBox passWork({required TextEditingController controllerfind,String? textfin
         {
           return 'Field must be required Minimum 8 & Maximum 32!';
         }
+        else if(passcknum==0)
+          {
+            return 'Field must be required Any One Number Is Important';
+          }
         else if(passck==0)
           {
             return 'Field must be required one Spacial Character';
-          }else if(passck1==1)
+          }
+        else if(passckspace==1)
           {
             return 'Field must be required Space Does Not Allow';
-          }
+          }else if(passupperCk==0)
+            {
+              return 'Field must be required Upper Letter';
+            }
+        return null;
       },
       onChanged: (value) {
         password=value;
       },
+      obscureText: boolicon,
       controller: controllerfind,
       decoration: InputDecoration(
-        errorBorder: OutlineInputBorder(
+        errorBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Colors.red)
         ),
-        border: OutlineInputBorder(),
+        border: const OutlineInputBorder(),
         hoverColor: Colors.black,
         label: Text(textfind.toString()),
-        labelStyle: TextStyle(color: Colors.black),
+        labelStyle: const TextStyle(color: Colors.black),
         hintText: textfind,//<----------{hint}
         hintStyle: const TextStyle(
           color: Colors.black,

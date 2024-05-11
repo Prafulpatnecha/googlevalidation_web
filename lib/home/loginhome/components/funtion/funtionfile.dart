@@ -7,9 +7,9 @@ int ck=0;
 
 const asciiDecoder = AsciiDecoder();
 List<int> asciiValues = [];
-var result;
+var result='';
 // final result = asciiDecoder.convert(asciiValues);
-void funtion_Ascii()
+void funtionAscii()
 {
   // print(result);
   for(int i=32;i<=47;i++)
@@ -39,19 +39,19 @@ void funtion_Ascii()
   //   print(asciiValues[i]);
   // }
 
-void funtion_check()
+void funtioncheck()
 {
-  funtion_Ascii();
-  gmail_ck();
+  funtionAscii();
+  gmailckk();
   gmaillast();
   spacefind(findtext: email);
 }
 
-void gmail_ck()
+void gmailckk()//10<================================
 {
   for(int i=0; i<email.length-10;i++)
     {
-      for(int j=0;j<asciiValues.length;j++)
+      for(int j=1;j<asciiValues.length;j++)
         {
           if(email[i]==result[j])
             {
@@ -63,7 +63,7 @@ void gmail_ck()
 int ckgmaillast=0;
 int ckgmail=0;
 String gmailmain='@gmail.com';
-void gmaillast()
+void gmaillast()// less 10<=========================
 {
   int j=0;
   // print('${email.length - 10}');
